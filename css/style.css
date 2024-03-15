@@ -1,0 +1,99 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrap {
+  height: 100vh;
+}
+.df {
+  display: flex;
+}
+.top {
+  width: 100%;
+  height: 80px;
+  background: black;
+  display: flex;
+  justify-content: space-around;
+}
+.logo {
+  width: 10%;
+  height: 60px;
+  background: yellow;
+}
+.gnb-wrap > ul {
+  display: flex;
+  align-items: center;
+}
+ul > li {
+  list-style: none;
+  color: white;
+}
+.main{
+  width: 100%;
+  height: 100%;
+}
+.main img {
+  width: 100%;
+  height: 100%;
+}
+.section1 {
+  width: 100%;
+  height: 100%;
+  
+  background: blue;
+}
+.about-me{
+  width: 100%;
+  height: 10%;
+  padding-left: 40%;
+  background: red;
+  font-size: 50px;
+}
+.about_box{
+  width: 100%;
+  height: 50%;
+  background: black;
+  display: flex;
+}
+.about_box1{
+  width: 50%;
+  height: 80%;
+  background: wheat;
+}
+.about_box2{
+  width: 50%;
+  height: 80%;
+  background: green;
+}
+.skill1{
+  width: 90px;
+  height: 50px;
+  margin-left: 50px;
+  background: white;
+  color: #ffffff;
+  text-align: left;
+  font-family: "Pretendard-SemiBold", sans-serif;
+}
+
+
+.section2 {
+  width: 100%;
+  height: 100%;
+  background: green;
+}
+.section3 {
+  width: 100%;
+  height: 100%;
+  background: yellow;
+}
+.section4 {
+  width: 100%;
+  height: 100%;
+  background: yellow;
+}
+footer {
+  height: 120px;
+  background: yellow;
+}
