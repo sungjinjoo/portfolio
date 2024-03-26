@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
       'skibox1': '80%',
       'skibox2': '90%',
       'skibox3': '90%',
-      'skibox4': '80%'
+      'skibox4': '85%'
   };
 
   // 각 기술의 숙련도에 따라 너비 설정
