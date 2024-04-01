@@ -9,7 +9,6 @@ let currentY = 0;
 document.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
-  console.log(mouseX, mouseY);
 });
 tick();
 function tick() {
@@ -24,41 +23,40 @@ function tick() {
 }
 //퍼센트바
 
+// 각 기술의 숙련도 퍼센트
+const skillPercents = {
+  skibox1: "80%",
+  skibox2: "90%",
+  skibox3: "90%",
+  skibox4: "85%",
+};
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // 각 기술의 숙련도 퍼센트
-    const skillPercents = {
-        'skibox1': '80%',
-        'skibox2': '90%',
-        'skibox3': '90%',
-        'skibox4': '85%'
-    };
-
-    // 각 기술의 숙련도에 따라 너비 설정하는 함수
-    function setSkillWidth() {
-        for (const [skill, percent] of Object.entries(skillPercents)) {
-            document.querySelector('.' + skill).style.width = percent;
-        }
-    }
-
-    // 페이지 로드시와 스크롤 이벤트가 발생할 때마다 실행
-    setSkillWidth();
-    window.addEventListener('scroll', setSkillWidth);
+// 각 기술의 숙련도에 따라 너비 설정하는 함수
+function setSkillWidth() {
+  for (const [skill, percent] of Object.entries(skillPercents)) {
+    document.querySelector("." + skill).style.width = percent;
+  }
 }
-)
-window.addEventListener('scroll', function() {
-  var header = document.querySelector('.top');
+/* 마우스탑버튼설정 */
+window.addEventListener("scroll", function () {
+  var header = document.querySelector(".top");
   var scrollPosition = window.scrollY;
   var headerHeight = header.offsetHeight;
+  let aboutMe = document.querySelector(".section1").offsetHeight;
 
   if (scrollPosition > headerHeight) {
-      header.style.position = 'fixed';
-      header.style.top = '0';
+    header.style.position = "fixed";
+    header.style.top = "0";
   } else {
-      header.style.position = 'relative';
+    header.style.position = "relative";
+  }
+  if (scrollPosition > aboutMe) {
+    setSkillWidth();
   }
 });
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+  scrollFunction();
+};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -67,3 +65,18 @@ function scrollFunction() {
     document.getElementById("topBtn").style.display = "none";
   }
 }
+document.getElementById("topBtn").addEventListener("click", function() {
+    // 페이지의 스크롤 위치를 맨 위로 이동시킵니다.
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+});
+
+/* 노티 설정 */
+const ani = bodymovin.loadAnimation({
+  container: document.querySelector(".logo"),
+  renderer: "svg" /* 어떤형식인지 */,
+  loop: true /* 무한반복 */,
+  autoplay: true /* 자동재생 */,
+  path: "./json/logo.json",
+});
+/* 스크린스크롤 */
