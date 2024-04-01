@@ -1,4 +1,3 @@
-
 const el = document.querySelector(".followAnimation");
 //마우스 좌표
 let mouseX = 0;
@@ -24,66 +23,47 @@ function tick() {
   el.style.transform = `translate(${currentX}px,${currentY}px )`;
 }
 //퍼센트바
-document.addEventListener('DOMContentLoaded', function() {
-  // 각 기술의 숙련도 퍼센트
-  const skillPercents = {
-      'skibox1': '80%',
-      'skibox2': '90%',
-      'skibox3': '90%',
-      'skibox4': '85%'
-  };
 
-  // 각 기술의 숙련도에 따라 너비 설정
-  for (const [skill, percent] of Object.entries(skillPercents)) {
-      document.querySelector('.' + skill).style.width = percent;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // 각 기술의 숙련도 퍼센트
+    const skillPercents = {
+        'skibox1': '80%',
+        'skibox2': '90%',
+        'skibox3': '90%',
+        'skibox4': '85%'
+    };
+
+    // 각 기술의 숙련도에 따라 너비 설정하는 함수
+    function setSkillWidth() {
+        for (const [skill, percent] of Object.entries(skillPercents)) {
+            document.querySelector('.' + skill).style.width = percent;
+        }
+    }
+
+    // 페이지 로드시와 스크롤 이벤트가 발생할 때마다 실행
+    setSkillWidth();
+    window.addEventListener('scroll', setSkillWidth);
+}
+)
+window.addEventListener('scroll', function() {
+  var header = document.querySelector('.top');
+  var scrollPosition = window.scrollY;
+  var headerHeight = header.offsetHeight;
+
+  if (scrollPosition > headerHeight) {
+      header.style.position = 'fixed';
+      header.style.top = '0';
+  } else {
+      header.style.position = 'relative';
   }
 });
+window.onscroll = function() {scrollFunction()};
 
-
-
-
-
-
-
-/* transform:translate(-50%,-50%) */
-
-/* const links = gsap.utils.toArray("nav li a"); */
-//링크마다 부드러운 섹션이동
- /* links.forEach((el) => {
-  const anc = document.querySelector(el.getAttribute("href"));
-  const linkST = ScrollTrigger.create({
-    trigger: anc,
-    start: "top top",
-  });
-  ScrollTrigger.create({
-    trigger: anc,
-    start: "top center",
-    end: "bottom center",
-    onToggle: () => {
-      setActive(el);
-    },
-  });
-  el.addEventListener("click", (e) => {
-    e.preventDefault();
-    gsap.to(window, { duration: 1, scrollTo: linkST.start });
-  });
-});
-
-//링크활성화표시
-function setActive(link) {
-  links.forEach((el) => {
-    el.classList.remove("active");
-  });
-  link.classList.add("active");
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topBtn").style.display = "block";
+  } else {
+    document.getElementById("topBtn").style.display = "none";
+  }
 }
-
-ScrollTrigger.create({
-  start: "top-80",
-  end: 999999,
-  markers: true,
-  toggleClass: {
-    className: "active",
-    targets: "nav",
-  },
-});  */
-
