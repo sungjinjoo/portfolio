@@ -79,4 +79,18 @@ const ani = bodymovin.loadAnimation({
   autoplay: true /* 자동재생 */,
   path: "./json/logo.json",
 });
-/* 스크린스크롤 */
+/* 노티 설정 */
+const ain = bodymovin.loadAnimation({
+  container: document.querySelector(".about_img"),
+  renderer: "svg" /* 어떤형식인지 */,
+  loop: true /* 무한반복 */,
+  autoplay: true /* 자동재생 */,
+  path: "./json/main.json",
+});
+const big = bodymovin.loadAnimation({
+  container: document.querySelector(".mainphoto"),
+  renderer: "svg" /* 어떤형식인지 */,
+  loop: true /* 무한반복 */,
+  autoplay: true /* 자동재생 */,
+  path: "./json/bigmain.json",
+});

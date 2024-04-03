@@ -14,10 +14,10 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  font-size: 2rem;
-  /* css 애니메이션 적용시 성능개선 */
+  font-size: 2rem; /* css 애니메이션 적용시 성능개선 */
   will-change: transform;
   transform: translate(0, 0);
+  z-index: 10;
 }
 .wrap {
   height: 100vh;
@@ -29,7 +29,7 @@ body {
 .top {
   width: 100%;
   height: 80px;
-  background: white;
+  background: skyblue;
   display: flex;
   justify-content: space-around;
   z-index: 99;
@@ -45,7 +45,7 @@ body {
   width: 40%;
   height: 80px;
   display: flex;
-  background: white;
+  background: skyblue;
 }
 .gnb-wrap > ul {
   display: flex;
@@ -57,38 +57,40 @@ body {
 }
 ul > li {
   list-style: none;
-  color: white;
 }
-a {
+ul > li a {
   padding: 50px;
   text-decoration: none;
-  color: black;
+  color: #fff;
+  transition: border-bottom 2s;
 }
 ul.menu > li > a:hover {
   color: rgb(94, 154, 214);
+  border-bottom: 2px solid #fff; /* 밑줄 스타일 변경 */
 }
+
 .main {
   width: 100%;
   height: 100%;
+  position: relative;
+  /* 원하는 높이로 조정하세요 */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(135, 206, 250, 0) 0%,
+    rgba(135, 206, 250, 1) 100%
+  );
+  /* 원하는 그라데이션 색상 및 방향으로 변경하세요 */
+  overflow: hidden;
 }
+
 .mainphoto {
   width: 20%;
   position: absolute;
   height: 20%;
   content: "";
-  background: url(../img/main1.png) no-repeat center;
   z-index: 1;
   top: 40%;
   left: 40%;
-}
-.minibox {
-  display: flex;
-  justify-content: space-around;
-}
-.minibox1 {
-  width: 20%;
-  height: 40px;
-  border: 1px solid black;
 }
 
 .minibox2 {
@@ -97,84 +99,60 @@ ul.menu > li > a:hover {
   border: 1px solid black;
 }
 .text_box {
-  width: 40%;
-  height: 20%;
-  /* border: 1px solid black; */
-  position: absolute;
-  top: 61%;
-  left: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 70%;
 }
-.maintext {
-  width: 30%;
-  height: 20%;
-  text-align: center;
-  /*  border: 1px solid black; */
-}
-
-.maintext .btn-shine {
+.text_box .maintext {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 12px 48px;
-  color: #ffffff;
-  background: linear-gradient(
-    to right,
-    #004e14 0,
-    rgb(117, 111, 111) 50%,
-    #b8b8b8 50%
-  );
-  background-position: 0;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s infinite linear;
-  animation-fill-mode: forwards;
-  -webkit-text-size-adjust: none;
-  font-weight: 800;
-  font-size: 16px;
-  text-decoration: none;
-  white-space: nowrap;
+  transform: translateY(-15%);
+  left: 100px;
+}
+.text_box .maintext p {
+  color: white;
+  text-align: center;
+  font-size: 2vw;
+  line-height: 70px;
+  font-weight: 600;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+}
+.button_box {
+  width: 50%;
+  height: 50%;
+  margin-top: 20%;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.bt1 {
+  width: 40%;
+  height: 40%;
+}
+.bt2 {
+  width: 40%;
+  height: 40%;
 }
 
-@keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  100% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 280px;
-  }
-}
-/* .maintext p {
-  font-size: 20px;
-  font-family: "Pretendard-SemiBold", sans-serif;
-} */
-.main img {
-  width: 100%;
-  height: 100%;
-}
+/* .mainphoto > img { width: 50%; height: 50%; } */
+/* .main img { width: 100%; height: 100%; } */
 /* scetion1 */
 .section1 {
   width: 100%;
   height: 100%;
-
-  background: blue;
 }
 .about-me {
   width: 100%;
   height: 8%;
+  color: white;
   text-align: center;
-  background: white;
+  background: skyblue;
   font-size: 50px;
 }
 .about_box {
   width: 100%;
-  height: 92%;
+  height: 60%;
   background: white;
   display: flex;
   flex-direction: column;
@@ -183,9 +161,7 @@ ul.menu > li > a:hover {
 }
 .about_box1 {
   width: 80%;
-  height: 100%;
-  /* border: 1px solid gray;
-  border-radius: 25px; */
+  height: 100%; /* border: 1px solid gray; border-radius: 25px; */
   display: flex;
   align-items: center;
 }
@@ -193,15 +169,10 @@ ul.menu > li > a:hover {
   width: 50%;
   height: 80%;
 }
-.about_img img {
-  width: 100%;
-  height: 100%;
-  border-radius: 5%;
-}
 .about_text {
   width: 50%;
   height: 60%;
-  background: rgba(128, 128, 128, 0.151);
+  border: 2px solid skyblue;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -210,11 +181,12 @@ ul.menu > li > a:hover {
 }
 .about_mini {
   width: 20%;
-  height: 30%;
+  height: 5%;
 }
 .about_mini2 {
   width: 50%;
   height: 30%;
+  text-align: center;
 }
 .about_box2 {
   width: 50%;
@@ -222,13 +194,18 @@ ul.menu > li > a:hover {
   background: white;
   display: inline-grid;
 }
-
+.skill {
+  font-size: 2vw;
+  text-align: center;
+  font-weight: 600;
+}
 .skill1,
 .skill2,
 .skill3,
 .skill4 {
   width: 100%;
-  background-color: #ddd;
+  padding: 10px;
+  background-color: white;
 }
 
 .skibox1,
@@ -236,8 +213,8 @@ ul.menu > li > a:hover {
 .skibox3,
 .skibox4 {
   width: 0;
-  height: 20%; /* 높이 설정 */
-  background-color: #4caf50;
+  height: 50%; /* 높이 설정 */
+  background-color: skyblue;
   transition: width 2s; /* 애니메이션 효과 */
 }
 
@@ -245,6 +222,7 @@ ul.menu > li > a:hover {
 .section2 {
   width: 100%;
   height: 40%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -270,8 +248,7 @@ ul.menu > li > a:hover {
   height: 20%;
   border: 1px solid;
   transition: all 0.4s;
-  border-radius: 30px;
-  /*  background: rgb(105, 105, 105); */
+  border-radius: 30px; /* background: rgb(105, 105, 105); */
 }
 .probox2:hover {
   color: #fff;
@@ -289,8 +266,7 @@ ul.menu > li > a:hover {
   height: 20%;
   border: 1px solid;
   transition: all 0.4s;
-  border-radius: 30px;
-  /* background: rgb(105, 105, 105); */
+  border-radius: 30px; /* background: rgb(105, 105, 105); */
 }
 .probox3:hover {
   color: #fff;
@@ -308,8 +284,7 @@ ul.menu > li > a:hover {
   height: 20%;
   border: 1px solid;
   transition: all 0.4s;
-  border-radius: 30px;
-  /* background: rgb(105, 105, 105); */
+  border-radius: 30px; /* background: rgb(105, 105, 105); */
 }
 .probox4:hover {
   color: #fff;
@@ -326,6 +301,7 @@ ul.menu > li > a:hover {
 .section3 {
   width: 100%;
   height: 80%;
+  margin-top: 5%;
   display: flex;
 }
 .sec3_box {
@@ -346,7 +322,6 @@ ul.menu > li > a:hover {
 
 .sec3_box:hover {
   background-position: center 100%;
-
   /* 마우스를 요소 위로 가져갈 때 이미지가 나타나도록 함 */
 }
 
@@ -358,14 +333,9 @@ ul.menu > li > a:hover {
 }
 
 .sec3_box:hover img {
-  display: block;
-  /* 마우스를 요소 위로 가져갈 때 이미지가 표시되도록 함 */
+  display: block; /* 마우스를 요소 위로 가져갈 때 이미지가 표시되도록 함 */
 }
-/* .sec3_box img {
-  width: 50%;
-  height: 50%;
-  object-fit: cover;
-} */
+/* .sec3_box img { width: 50%; height: 50%; object-fit: cover; } */
 .sec3_box1 {
   width: 50%;
   height: 100%;
@@ -382,8 +352,7 @@ ul.menu > li > a:hover {
 .sec3_text {
   width: 70%;
   height: 60%;
-  display: grid;
-  /*  background: yellow; */
+  display: grid; /* background: yellow; */
 }
 .sec3_dep {
   width: 50%;
@@ -396,8 +365,7 @@ ul.menu > li > a:hover {
 .sec3_con1 {
   width: 70%;
   height: 20%;
-  display: flex;
-  /* background: blue; */
+  display: flex; /* background: blue; */
   justify-content: space-around;
   align-items: center;
 }
@@ -440,8 +408,7 @@ ul.menu > li > a:hover {
   border-radius: 3rem;
   background-repeat: no-repeat;
   background-position: center 0%;
-  background-size: 100%;
-  /*  transition: all 2s ease-in-out; */
+  background-size: 100%; /* transition: all 2s ease-in-out; */
   box-shadow: -3px 3px 3px #d9d9d9;
   overflow: hidden;
   position: relative;
