@@ -17,14 +17,14 @@ body {
   font-size: 2rem; /* css 애니메이션 적용시 성능개선 */
   will-change: transform;
   transform: translate(0, 0);
-  z-index: 10;
+  z-index: 8;
 }
 .wrap {
   height: 100vh;
 }
 .df {
   display: flex;
-  z-index: 999;
+  z-index: 99;
 }
 .top {
   width: 100%;
@@ -170,24 +170,48 @@ ul.menu > li > a:hover {
   height: 80%;
 }
 .about_text {
-  width: 50%;
-  height: 60%;
+  width: 60%;
+  height: 70%;
   border: 2px solid skyblue;
   border-radius: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: space-around;
 }
-.about_mini {
-  width: 20%;
-  height: 5%;
+.at1 h3 {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 31px;
+  letter-spacing: 3px;
+  margin: 25px 0 9px 0;
 }
-.about_mini2 {
-  width: 50%;
-  height: 30%;
-  text-align: center;
+.at1_text {
+  line-height: 30px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
+
+.at2_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.at2 h3 {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 31px;
+  letter-spacing: 3px;
+  margin: 25px 0 9px 0;
+}
+.at2_text {
+  line-height: 25px;
+  display: flex;
+  flex-direction: column;
+}
+/* .at2_text2{
+  display: flex;
+  flex-direction: column;
+} */
 .about_box2 {
   width: 50%;
   height: 50%;
@@ -279,24 +303,7 @@ ul.menu > li > a:hover {
   font-family: "Pretendard-SemiBold", sans-serif;
   color: #fff;
 }
-.probox4 {
-  width: 100%;
-  height: 20%;
-  border: 1px solid;
-  transition: all 0.4s;
-  border-radius: 30px; /* background: rgb(105, 105, 105); */
-}
-.probox4:hover {
-  color: #fff;
-  background-color: rgb(94, 154, 214);
-}
-.probox4 h2 {
-  text-align: center;
-  padding-top: 10px;
-  font-size: 40px;
-  font-family: "Pretendard-SemiBold", sans-serif;
-  color: #fff;
-}
+
 /* section3 */
 .section3 {
   width: 100%;
@@ -318,6 +325,7 @@ ul.menu > li > a:hover {
   overflow: hidden;
   position: relative;
   object-fit: cover;
+  z-index: 10;
 }
 
 .sec3_box:hover {
@@ -367,7 +375,7 @@ ul.menu > li > a:hover {
   height: 20%;
   display: flex; /* background: blue; */
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
 }
 .sub_box1 {
   width: 40%;
@@ -394,10 +402,24 @@ ul.menu > li > a:hover {
   color: #fff;
   background-color: rgb(94, 154, 214);
 }
+.sub_box3 {
+  width: 40%;
+  height: 40%;
+  border: 2px solid skyblue;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sub_box3:hover {
+  color: #fff;
+  background-color: rgb(94, 154, 214);
+}
 /* section4 */
 .section4 {
   width: 100%;
   height: 100%;
+  padding-top: 5%;
   display: flex;
 }
 .sec4_box {
@@ -414,9 +436,10 @@ ul.menu > li > a:hover {
   position: relative;
 }
 .sec4_box img {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: flex;
 }
 .sec4_box1 {
   width: 50%;
@@ -433,14 +456,35 @@ ul.menu > li > a:hover {
 .sec4_text {
   width: 70%;
   height: 60%;
-  background: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.sec4_main {
+  line-height: 30px;
+}
+.sec4_df {
+  width: 50%;
+  height: 10%;
+  display: flex;
+
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid;
+}
+.sec4_df p,
+.sec4_df span {
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 .sec4_con1 {
   width: 70%;
   height: 20%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
 }
 .sub_box1 {
   width: 40%;
@@ -455,8 +499,23 @@ ul.menu > li > a:hover {
   background: white;
 }
 footer {
-  height: 120px;
-  background: yellow;
+  width: 100%;
+  height: 50%;
+  border: 1px solid skyblue;
+}
+.footer_inner {
+  text-align: center;
+}
+footer .footer_top {
+  text-align: center;
+}
+footer .footer_top h2 {
+  letter-spacing: 3.2px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 31px;
+  padding-top: 100px;
+  padding: 100px 0 50px 0;
 }
 #topBtn {
   display: none; /* 페이지 최상단에 숨김 */
